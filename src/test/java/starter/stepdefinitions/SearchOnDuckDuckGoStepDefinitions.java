@@ -1,14 +1,12 @@
 package starter.stepdefinitions;
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import org.assertj.core.api.Condition;
-import org.junit.Assume;
 import starter.navigation.NavigateTo;
 import starter.search.SearchFor;
+import starter.search.SearchHomepageFor;
 import starter.search.SearchResult;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,6 +16,9 @@ public class SearchOnDuckDuckGoStepDefinitions {
 
     @Steps
     NavigateTo navigateTo;
+
+    @Steps
+    SearchHomepageFor searchHomepageFor;
 
     @Steps
     SearchFor searchFor;
@@ -32,6 +33,11 @@ public class SearchOnDuckDuckGoStepDefinitions {
 
     @When("^s?he (?:searches|has searched) for \"(.*)\"")
     public void i_search_for(String term) {
+        searchHomepageFor.term(term);
+    }
+
+    @When("^s?he searches again for \"(.*)\"")
+    public void i_search_again_for(String term) {
         searchFor.term(term);
     }
 
