@@ -120,6 +120,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <version>2.22.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -145,9 +146,10 @@
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                     </systemPropertyVariables>
+                    <forkCount>0</forkCount>
                     <parallel>methods</parallel>
                     <threadCount>${parallel.tests}</threadCount>
-                    <perCoreThreadCount>true</perCoreThreadCount>
+<!--                    <perCoreThreadCount>true</perCoreThreadCount>-->
                 </configuration>
                 <executions>
                     <execution>

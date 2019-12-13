@@ -1,5 +1,8 @@
 Feature: Search by keyword
 
+  Here we search for stuff with keywords.Some nice examples here:
+  {Examples!WithTitle} Searching for a keyword
+
   Scenario Outline: Searching for a keyword
     Given Sergey is on the search page
     When he searches for "<word>"
@@ -18,8 +21,24 @@ Feature: Search by keyword
     These colors are very nice too
       | word   | title  |
       | Green  | G      |
-      | Orange | BROKEN |
-      | Purple | P      |
+      | Orange | O      |
+      | Purple | BROKEN |
+      | Pink   | P      |
+
+    @colors:monocrome
+    Examples: Monocrome colors
+    These colors are very nice too
+      | word        | title |
+      | Black       | B     |
+      | White       | W     |
+      | Transparent | T     |
+
+    @colors:monocrome
+    Examples: More Monocrome colors
+    These colors are very nice too
+      | word         | title |
+      | Dark Black   | BROKEN     |
+      | Bright White | W     |
 
   Scenario: Searching another keyword
   Sergey needs a pumpkin
